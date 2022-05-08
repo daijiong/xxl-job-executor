@@ -1,0 +1,41 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+      base-path: /actuator
+  endpoint:
+    logfile:
+      external-file: ./log/info.log
+    shutdown:
+      enabled: false
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+      jmx:
+        enabled: true
+    tags:
+      application: ${spring.application.name}
+logging:
+  config: classpath:logback.xml
+xxl:
+  job:
+    # 任务调度中心地址
+    admin:
+      addresses: http://192.168.247.131:8082/xxl-job-admin
+    # 任务调度中心接入验证TOKEN，选填，非空时启用，进行安全严重
+    accessToken: EA00FD9F854711EB83BE00163E10231A
+    executor:
+      # 执行器地址，不需要填写，因为执行器会自动注册
+      address: ''
+      # 执行器的appname，任务调度中心添加执行器的时候需要填写这个值
+      appname: ${spring.application.name}
+      # 执行器IP，不需要填写，因为执行器会自动注册
+      ip: ''
+      # 执行器日志路径
+      logpath: ./log
+      # 执行器日志保留时间
+      logretentiondays: 30
+      # 执行器端口
+      port: 8085
