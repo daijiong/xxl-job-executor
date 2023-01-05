@@ -23,7 +23,7 @@ xxl:
   job:
     # 任务调度中心地址
     admin:
-      addresses: http://192.168.247.130:8082/xxl-job-admin
+      addresses: http://192.168.247.132:8082/xxl-job-admin
     # 任务调度中心接入验证TOKEN，选填，非空时启用，进行安全严重
     accessToken: EA00FD9F854711EB83BE00163E10231A
     executor:
